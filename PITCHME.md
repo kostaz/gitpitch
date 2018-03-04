@@ -1,14 +1,14 @@
-# Flux 
+# Yocto Project
 
-An application architecture for React
+Yocto Project for modern hi-tech products
 
 ---
 
-### Flux Design
+### Agenda
 
-- Dispatcher: Manages Data Flow
-- Stores: Handle State & Logic
-- Views: Render Data via React
+- Yocto advantages
+- Current status and what's next
+- Live demo (optional)
 
 ---
 
