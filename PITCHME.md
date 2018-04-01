@@ -24,4 +24,8 @@ bb.SetHex(str);
 
 ---
 
+<script src="https://ideone.com/e.js/CeDilU" type="text/javascript" ></script>
+
+---
+
 ![Flux Explained](https://facebook.github.io/flux/img/flux-simple-f8-diagram-explained-1300w.png)
