@@ -33,19 +33,6 @@ public:
 
 ---
 
-### `uint256` - `base_blob` constructor
-
-```
-template <unsigned int BITS>
-base_blob<BITS>::base_blob(const std::vector<unsigned char>& vch)
-{
-    assert(vch.size() == sizeof(data));
-    memcpy(data, vch.data(), sizeof(data));
-}
-```
-
----
-
 ### `uint256` - `SetHex()`
 ```
 template <unsigned int BITS>
