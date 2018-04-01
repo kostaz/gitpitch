@@ -20,8 +20,8 @@ base_blob<64> bb;
 bb.SetHex(str);
 ```
 
-https://github.com/kostaz/playground/blob/master/cpp/convert_bytes_to_string.cpp
-https://ideone.com/e.js/CeDilU
+[github link](https://github.com/kostaz/playground/blob/master/cpp/convert_bytes_to_string.cpp)
+[ideone link](https://ideone.com/e.js/CeDilU)
 
 ---
 
