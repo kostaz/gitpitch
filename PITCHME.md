@@ -12,7 +12,68 @@ Yocto Project for modern hi-tech products
 
 ---
 
-### How to create `base_blob` from `char*` string?
+### `uint256`
+
+```
+template<unsigned int BITS>
+class base_blob
+{
+protected:
+    static constexpr int WIDTH = BITS / 8;
+    uint8_t data[WIDTH];
+
+public:
+    base_blob()
+    {
+        memset(data, 0, sizeof(data));
+    }
+
+    void SetHex(const char* psz);
+};
+```
+
+--------------------------------------------------------------------------------
+
+### `uint256` - `base_blob` constructor
+
+```
+template <unsigned int BITS>
+base_blob<BITS>::base_blob(const std::vector<unsigned char>& vch)
+{
+    assert(vch.size() == sizeof(data));
+    memcpy(data, vch.data(), sizeof(data));
+}
+```
+
+--------------------------------------------------------------------------------
+
+### `uint256` - `SetHex()`
+```
+template <unsigned int BITS>
+void base_blob<BITS>::SetHex(const char* psz)
+{
+    memset(data, 0, sizeof(data));
+
+    const char* pbegin = psz;
+    while (::HexDigit(*psz) != -1)
+        psz++;
+    psz--;
+
+    unsigned char* p1 = (unsigned char*)data;
+    unsigned char* pend = p1 + WIDTH;
+    while (psz >= pbegin && p1 < pend) {
+        *p1 = ::HexDigit(*psz--);
+        if (psz >= pbegin) {
+            *p1 |= ((unsigned char)::HexDigit(*psz--) << 4);
+            p1++;
+        }
+    }
+}
+```
+
+---
+
+### `base_blob` from `char*` string?
 
 ```
 char *str = "0x12345678"
