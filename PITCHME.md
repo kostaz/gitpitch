@@ -23,8 +23,7 @@ protected:
     uint8_t data[WIDTH];
 
 public:
-    base_blob()
-    {
+    base_blob() {
         memset(data, 0, sizeof(data));
     }
 
@@ -32,7 +31,7 @@ public:
 };
 ```
 
---------------------------------------------------------------------------------
+---
 
 ### `uint256` - `base_blob` constructor
 
@@ -45,7 +44,7 @@ base_blob<BITS>::base_blob(const std::vector<unsigned char>& vch)
 }
 ```
 
---------------------------------------------------------------------------------
+---
 
 ### `uint256` - `SetHex()`
 ```
@@ -55,12 +54,9 @@ void base_blob<BITS>::SetHex(const char* psz)
     memset(data, 0, sizeof(data));
 
     const char* pbegin = psz;
-    while (::HexDigit(*psz) != -1)
-        psz++;
-    psz--;
-
     unsigned char* p1 = (unsigned char*)data;
     unsigned char* pend = p1 + WIDTH;
+
     while (psz >= pbegin && p1 < pend) {
         *p1 = ::HexDigit(*psz--);
         if (psz >= pbegin) {
